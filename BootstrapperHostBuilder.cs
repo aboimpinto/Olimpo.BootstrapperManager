@@ -5,7 +5,7 @@ namespace Olimpo;
 
 public static class BootstrapperHostBuilder
 {
-    public static IHostBuilder RegisterEventAggregatorManager(this IHostBuilder builder)
+    public static IHostBuilder RegisterBootstrapperManager(this IHostBuilder builder)
     {
         builder.ConfigureServices((hostContext, services) => 
         {
