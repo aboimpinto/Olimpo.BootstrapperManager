@@ -9,9 +9,19 @@ public static class BootstrapperHostBuilder
     {
         builder.ConfigureServices((hostContext, services) => 
         {
-            services.AddSingleton<IBootstrapperManager, BootstrapperManager>();
+            services.RegisterBootstrapper();
         });
 
         return builder;
     }  
+}
+
+public static class ServiceCollectionExtensions
+{
+    public static IServiceCollection RegisterBootstrapper(this IServiceCollection serviceCollection)
+    {
+        serviceCollection.AddSingleton<IBootstrapperManager, BootstrapperManager>();
+
+        return serviceCollection;
+    }
 }
